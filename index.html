@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Animations course</title>
+</head>
+
+<body>
+	<style>
+		p {
+			background: lightblue;
+			transform-origin: left;
+			transition: transform .5s ease-in, background .25s ease-in-out;
+		}
+
+		p.all {
+			transition: .5s;
+		}
+
+		p:hover {
+			background: lemonchiffon;
+			transform: scale(1.5);
+		}
+
+		#ball {
+			background-color: lightblue;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+
+			animation-name: move-ball;
+			animation-iteration-count: 1;
+			animation-duration: 1s;
+			animation-timing-function: ease-in;
+			animation-delay: 1s;
+			/* animation-fill-mode: backwards; /* applies styles in 0% during the delay */
+			/* animation-fill-mode: backwards; /* applies styles in 100% after the animation  */
+			animation-fill-mode: both; /* stays during the  */
+		}
+
+		@keyframes move-ball {
+			0% { transform: translateX(50px); }
+			50% { transform: translateX(-10px); }
+			100% { transform: translateX(100px); }
+		}
+
+		/* cubic-bezier(x1, y1, x2, y2) */
+	</style>
+	<p>separating properties on the transition</p>
+	<p class="all">separating properties on the transition</p>
+	<div id="ball"></div>
+</body>
+
+</html>
